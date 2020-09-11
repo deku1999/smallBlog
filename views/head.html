@@ -1,0 +1,27 @@
+<div class="container-fluid clearfix head">
+    <a href="/" style="padding-left:30px;color:#fff;" class="recommend">首页</a>
+    <a href="/article" style="padding-left:30px;color:#fff;" class="recommend">撰写文章</a>
+    <div class="float-right info">
+    <div class="info-right">
+    {{if session.user}}
+    <div class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          当前用户信息
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item active" href="javascript:void(0);">用户昵称：{{ session && session.user}}</a>
+          <a class="dropdown-item " href="/edit">修改信息</a>
+          <a class="dropdown-item " href="/infoBlog">我的博客</a>
+          <a class="dropdown-item " href="/exit">退出</a>
+        </div>
+    </div>
+    {{/if}}
+    </div>
+    <div class="info-right">
+        {{if !session.user}}
+        <a href="/login" class="btn btn-success">登录</a>
+        <a href="/register" class="btn btn-info">注册</a>
+        {{/if}}
+    </div>
+    </div>
+</div>

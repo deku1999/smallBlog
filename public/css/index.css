@@ -1,0 +1,17 @@
+.head{
+    height: 64px;
+    background-color: #7952b3;
+}
+.recommend{
+    line-height: 64px;
+}
+.info{
+    display: flex;
+    width: 400px;
+    text-align: center;
+    align-items: center;
+    height: 64px;
+}
+.info-right{
+    flex: 1;
+}

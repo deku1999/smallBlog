@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/index.css">
+</head>
+<body>
+    {{include './head.html'}}
+    <div class="container" style="padding-top:20px;">
+        {{if ret.length}}
+        <ul class="list-group">
+            {{each ret}}
+            <li class="list-group-item clearfix">
+                <a href="/detail?id='{{$value._id}}'">{{$value.title}}</a>
+                <span class="float-right">{{$value.date.getFullYear()}}-{{$value.date.getMonth()+1}}-{{$value.date.getDate()}} {{$value.date.getHours()}}:{{$value.date.getMinutes()}}:{{$value.date.getSeconds()}}</span>
+                <span class="float-right" style="margin-right:15px;">{{$value.username}}</span>
+                <a href="/delete?id={{$value._id}}" class="btn  btn-danger" role="button">删除文章</a>
+            </li>
+            {{/each}}
+          </ul>
+          {{/if}}
+          {{if ret.length===0}}
+          <h2>阿，你的博客空空如也呢，快去写作吧！</h2>
+          {{/if}}
+    </div>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
